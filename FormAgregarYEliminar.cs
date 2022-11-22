@@ -15,6 +15,14 @@ namespace Ficheros_XML
         public FormAgregarYEliminar()
         {
             InitializeComponent();
+            if (btnAceptar.Text.Equals("Eliminar")) {
+                txtDni.Enabled = false;
+                txtNombre.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtEdad.Enabled = false;
+                txtTelefono.Enabled = false;
+                txtCuenta.Enabled = false;
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

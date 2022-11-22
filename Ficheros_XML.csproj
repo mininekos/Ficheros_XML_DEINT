@@ -54,6 +54,18 @@
     <Compile Include="FormAgregarYEliminar.Designer.cs">
       <DependentUpon>FormAgregarYEliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormModificar.Designer.cs">
+      <DependentUpon>FormModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMostrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMostrar.Designer.cs">
+      <DependentUpon>FormMostrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAgregarYEliminar.resx">
       <DependentUpon>FormAgregarYEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMostrar.resx">
+      <DependentUpon>FormMostrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
