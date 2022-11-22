@@ -29,6 +29,15 @@ namespace Ficheros_XML.Clases
             NumCuenta = numCuenta;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Cliente cliente &&
+                   DNI == cliente.DNI;
+        }
 
+        public override int GetHashCode()
+        {
+            return 1533321978 + EqualityComparer<string>.Default.GetHashCode(DNI);
+        }
     }
 }

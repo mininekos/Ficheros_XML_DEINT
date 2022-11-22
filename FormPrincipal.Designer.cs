@@ -1,6 +1,6 @@
 ﻿namespace Ficheros_XML
 {
-    partial class FormPrincipal
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -74,7 +74,7 @@
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
-            // FormPrincipal
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +83,7 @@
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
-            this.Name = "FormPrincipal";
+            this.Name = "Menu";
             this.Text = "FormPrincipal";
             this.ResumeLayout(false);
 

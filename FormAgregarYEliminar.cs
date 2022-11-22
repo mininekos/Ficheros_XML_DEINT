@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ficheros_XML.Clases;
+using Ficheros_XML.Servicio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,19 +12,16 @@ using System.Windows.Forms;
 
 namespace Ficheros_XML
 {
+
     public partial class FormAgregarYEliminar : Form
     {
+        private Servicio.Servicio servicio;
+        
         public FormAgregarYEliminar()
         {
+
             InitializeComponent();
-            if (btnAceptar.Text.Equals("Eliminar")) {
-                txtDni.Enabled = false;
-                txtNombre.Enabled = false;
-                txtDireccion.Enabled = false;
-                txtEdad.Enabled = false;
-                txtTelefono.Enabled = false;
-                txtCuenta.Enabled = false;
-            }
+            servicio = new Servicio.Servicio();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -44,8 +43,11 @@ namespace Ficheros_XML
 
             }
             else if (btnAceptar.Text.Equals("Eliminar"))
-            { 
-            
+            {
+
+            }
+            else if (btnAceptar.Text.Equals("Modificar"))   { 
+
             }
         }
 
@@ -55,6 +57,25 @@ namespace Ficheros_XML
             {
                 e.Handled = true;
             }
+        }
+
+        private void FormAgregarYEliminar_Load(object sender, EventArgs e)
+        {
+            if (btnAceptar.Text.Equals("Eliminar"))
+            {
+                txtDni.Enabled = false;
+                txtNombre.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtEdad.Enabled = false;
+                txtTelefono.Enabled = false;
+                txtCuenta.Enabled = false;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show("");
         }
     }
 }

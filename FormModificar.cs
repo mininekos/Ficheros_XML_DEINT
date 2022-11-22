@@ -16,5 +16,28 @@ namespace Ficheros_XML
         {
             InitializeComponent();
         }
+
+        private void btnOpcion_Click(object sender, EventArgs e)
+        {
+            FormAgregarYEliminar form=new FormAgregarYEliminar();
+            
+            if (btnOpcion.Text.Equals("Eliminar")) {
+                form.btnAceptar.Text = "Eliminar";
+                form.Text = "Elimimnar cliente";
+                form.ShowDialog();
+            }
+            else if (btnOpcion.Text.Equals("Modificar")) {
+                form.btnAceptar.Text = "Modificar";
+                form.Text = "Modificar cliente";
+                form.ShowDialog();
+            }
+
+            Close();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

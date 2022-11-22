@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Ficheros_XML
 {
-    public partial class FormPrincipal : Form
+    public partial class Menu : Form
     {
-        public FormPrincipal()
+        public Menu()
         {
             InitializeComponent();
         }
@@ -32,15 +32,17 @@ namespace Ficheros_XML
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FormAgregarYEliminar formEliminar = new FormAgregarYEliminar();
-            formEliminar.btnAceptar.Text = "Eliminar";
+            FormModificar formEliminar = new FormModificar();
             formEliminar.Text = "Eliminar cliente";
+            formEliminar.btnOpcion.Text = "Eliminar";
             formEliminar.ShowDialog();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             FormModificar formModificar = new FormModificar();
+            formModificar.Text = "Modificar cliente";
+            formModificar.btnOpcion.Text = "Modificar";
             formModificar.ShowDialog();
         }
 
