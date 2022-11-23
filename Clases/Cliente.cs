@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Ficheros_XML.Clases
 {
-    internal class Cliente
+    [Serializable]
+    public class Cliente
     {
+
         public String DNI { get; set; }
         public String Nombre { get; set; }
         public String Direccion { get; set; }
@@ -27,6 +29,11 @@ namespace Ficheros_XML.Clases
             Edad = edad;
             Telefono = telefono;
             NumCuenta = numCuenta;
+        }
+
+        public Cliente(string dNI)
+        {
+            DNI = dNI;
         }
 
         public override bool Equals(object obj)

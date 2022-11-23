@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ficheros_XML.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace Ficheros_XML
 {
     public partial class FormMostrar : Form
     {
-        public FormMostrar()
+        Banco banco;
+        public FormMostrar(Banco banco)
         {
+            this.banco = banco;
             InitializeComponent();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

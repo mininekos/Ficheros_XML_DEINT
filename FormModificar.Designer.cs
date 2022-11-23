@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbDNI = new System.Windows.Forms.ComboBox();
             this.btnOpcion = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbDNI
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(139, 21);
-            this.comboBox1.TabIndex = 0;
+            this.cbDNI.FormattingEnabled = true;
+            this.cbDNI.Location = new System.Drawing.Point(12, 47);
+            this.cbDNI.Name = "cbDNI";
+            this.cbDNI.Size = new System.Drawing.Size(139, 21);
+            this.cbDNI.TabIndex = 0;
             // 
             // btnOpcion
             // 
@@ -67,18 +67,20 @@
             this.ClientSize = new System.Drawing.Size(330, 109);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnOpcion);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbDNI);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormModificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormModificar";
+            this.Load += new System.EventHandler(this.FormModificar_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbDNI;
         private System.Windows.Forms.Button btnSalir;
         public System.Windows.Forms.Button btnOpcion;
     }

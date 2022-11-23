@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ficheros_XML.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,32 +13,49 @@ namespace Ficheros_XML
 {
     public partial class FormModificar : Form
     {
-        public FormModificar()
+        Banco banco;
+        public FormModificar(Banco banco)
         {
+            this.banco = banco;
             InitializeComponent();
         }
 
         private void btnOpcion_Click(object sender, EventArgs e)
         {
-            FormAgregarYEliminar form=new FormAgregarYEliminar();
-            
-            if (btnOpcion.Text.Equals("Eliminar")) {
-                form.btnAceptar.Text = "Eliminar";
-                form.Text = "Elimimnar cliente";
-                form.ShowDialog();
-            }
-            else if (btnOpcion.Text.Equals("Modificar")) {
-                form.btnAceptar.Text = "Modificar";
-                form.Text = "Modificar cliente";
-                form.ShowDialog();
-            }
+            if (cbDNI.Text!="")
+            {
+                FormAgregarYEliminar form = new FormAgregarYEliminar(banco, cbDNI.Text);
 
-            Close();
+                if (btnOpcion.Text.Equals("Eliminar"))
+                {
+                    form.btnAceptar.Text = "Eliminar";
+                    form.Text = "Elimimnar cliente";
+                    form.ShowDialog();
+                }
+                else if (btnOpcion.Text.Equals("Modificar"))
+                {
+                    form.btnAceptar.Text = "Modificar";
+                    form.Text = "Modificar cliente";
+                    form.ShowDialog();
+                }
+
+                Close();
+            }
+            else {
+                MessageBox.Show("Cliente no seleccionado");
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FormModificar_Load(object sender, EventArgs e)
+        {
+            foreach (Cliente cliente in banco.ListaCLientes) { 
+                cbDNI.Items.Add(cliente.DNI);              
+            }
         }
     }
 }

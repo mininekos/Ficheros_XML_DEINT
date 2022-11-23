@@ -1,5 +1,4 @@
 ﻿using Ficheros_XML.Clases;
-using Ficheros_XML.Servicio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +14,13 @@ namespace Ficheros_XML
 
     public partial class FormAgregarYEliminar : Form
     {
-        private Servicio.Servicio servicio;
-        
-        public FormAgregarYEliminar()
+        Banco banco;
+        String dni;
+        public FormAgregarYEliminar(Banco banco, String dni)
         {
-
+            this.dni = dni;
+            this.banco = banco;
             InitializeComponent();
-            servicio = new Servicio.Servicio();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -33,21 +32,26 @@ namespace Ficheros_XML
         {
             if (btnAceptar.Text.Equals("Añadir"))
             {
+                banco.ListaCLientes.Add(new Cliente(txtDni.Text, txtNombre.Text, txtDireccion.Text,
+                    Int64.Parse(txtEdad.Text), Int64.Parse(txtTelefono.Text), Int64.Parse(txtCuenta.Text)));
+                
                 txtDni.Text = "";
                 txtNombre.Text = "";
                 txtDireccion.Text = "";
                 txtEdad.Text = "";
                 txtTelefono.Text = "";
                 txtCuenta.Text = "";
-
+                
+                MessageBox.Show("Cliente agregado");
 
             }
             else if (btnAceptar.Text.Equals("Eliminar"))
             {
-
+                MessageBox.Show("Cliente eliminador");
+                Close();
             }
-            else if (btnAceptar.Text.Equals("Modificar"))   { 
-
+            else if (btnAceptar.Text.Equals("Modificar")){
+                MessageBox.Show("Cliente modificado");
             }
         }
 
@@ -69,13 +73,22 @@ namespace Ficheros_XML
                 txtEdad.Enabled = false;
                 txtTelefono.Enabled = false;
                 txtCuenta.Enabled = false;
+                cargarCliente();
+            }
+            else if (btnAceptar.Text.Equals("Modificar")) {
+                cargarCliente();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void cargarCliente() {
             
-            MessageBox.Show("");
+            Cliente cliente= banco.ListaCLientes.Find(c=>c.Equals(new Cliente(dni)));
+            txtDni.Text = cliente.DNI;
+            txtNombre.Text = cliente.Nombre;
+            txtDireccion.Text = cliente.Direccion;
+            txtEdad.Text = cliente.Edad.ToString();
+            txtTelefono.Text = cliente.Telefono.ToString();
+            txtCuenta.Text = cliente.NumCuenta.ToString();
         }
     }
 }
