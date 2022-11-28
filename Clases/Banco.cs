@@ -10,7 +10,7 @@ namespace Ficheros_XML.Clases
     [Serializable]
     public class Banco
     {
-        [XmlElement("Cliente")]
+        //[XmlElement("Clientes")]
         public List<Cliente> ListaCLientes { get; set; }
 
         public Banco()

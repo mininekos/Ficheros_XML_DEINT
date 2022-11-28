@@ -47,11 +47,17 @@ namespace Ficheros_XML
             }
             else if (btnAceptar.Text.Equals("Eliminar"))
             {
-                MessageBox.Show("Cliente eliminador");
+                MessageBox.Show("Cliente eliminado");
+                banco.ListaCLientes.Remove(banco.ListaCLientes.Find(c => c.Equals(new Cliente(dni))));
                 Close();
             }
             else if (btnAceptar.Text.Equals("Modificar")){
+                Cliente clientViejo=banco.ListaCLientes.Find(c => c.Equals(new Cliente(dni)));
+                int ind =banco.ListaCLientes.IndexOf(clientViejo);
+                banco.ListaCLientes[ind]= new Cliente(txtDni.Text, txtNombre.Text, txtDireccion.Text,
+                    Int64.Parse(txtEdad.Text), Int64.Parse(txtTelefono.Text), Int64.Parse(txtCuenta.Text));
                 MessageBox.Show("Cliente modificado");
+                Close();
             }
         }
 
@@ -78,6 +84,7 @@ namespace Ficheros_XML
             else if (btnAceptar.Text.Equals("Modificar")) {
                 cargarCliente();
             }
+            
         }
 
         private void cargarCliente() {

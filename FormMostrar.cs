@@ -24,5 +24,10 @@ namespace Ficheros_XML
         {
             Close();
         }
+
+        private void FormMostrar_Load(object sender, EventArgs e)
+        {
+            dgClientes.DataSource = banco.ListaCLientes;
+        }
     }
 }

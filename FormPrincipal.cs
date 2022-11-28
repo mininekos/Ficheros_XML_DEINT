@@ -91,9 +91,5 @@ namespace Ficheros_XML
             escribirXML();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(banco.ListaCLientes.Count().ToString());
-        }
     }
 }
